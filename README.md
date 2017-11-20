@@ -1,6 +1,6 @@
 # WooCommerce Category Sorting #
 **Contributors:**      Bryan Headrick  
-**Donate link:**       https://www.poolwarehouse.com  
+**Donate link:**       https://catmanstudios.com  
 **Tags:**  
 **Requires at least:** 4.4  
 **Tested up to:**      4.8.1 

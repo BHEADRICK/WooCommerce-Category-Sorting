@@ -1,12 +1,12 @@
 <?php
 /**
  * Plugin Name: WooCommerce Category Sorting
- * Plugin URI:  https://www.poolwarehouse.com
+ * Plugin URI:  https://catmanstudios.com
  * Description: Adds sort options at category level
  * Version:     0.0.0
  * Author:      Bryan Headrick
  * Author URI:  https://catmanstudios.com
- * Donate link: https://www.poolwarehouse.com
+ * Donate link: https://catmanstudios.com
  * License:     GPLv2
  * Text Domain: woocommerce-category-sorting
  * Domain Path: /languages
