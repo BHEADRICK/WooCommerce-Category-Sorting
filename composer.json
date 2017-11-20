@@ -1,0 +1,18 @@
+{
+	"name": "woocommerce-category-sorting",
+	"description": "Adds sort options at category level",
+	"keywords": ["wordpress", "plugin", "generator-plugin-wp"],
+	"homepage": "https://www.poolwarehouse.com",
+	"license": "GPLv2",
+	"authors": [
+	{
+		"name": "Bryan Headrick",
+		"homepage": "https://catmanstudios.com"
+	}
+	],
+	"minimum-stability": "dev",
+	"type": "wordpress-plugin",
+	"autoload": {
+		"classmap": ["woocommerce-category-sorting.php", "includes/"]
+	}
+}
