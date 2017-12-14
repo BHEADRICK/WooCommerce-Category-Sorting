@@ -53,18 +53,20 @@ class WCCS_Catsort {
 
 	        if($cat_slug){
                 $cat = get_term_by('slug', $cat_slug, 'product_cat');
+                if(!is_wp_error($cat) && is_object($cat)){
+                    $sort_order = get_term_meta( $cat->term_id,'cat_order', true);
 
-                $sort_order = get_term_meta( $cat->term_id,'cat_order', true);
-
-                if(!empty($sort_order)){
-                    $orderby = $sort_order;
-                }elseif($cat->parent>0){
-                    $parent_cat = get_term($cat->parent, 'product_cat');
-                    $sort_order = get_term_meta( $parent_cat->term_id,'cat_order', true);
-                    if(!empty($sort_order)) {
+                    if(!empty($sort_order)){
                         $orderby = $sort_order;
+                    }elseif($cat->parent>0){
+                        $parent_cat = get_term($cat->parent, 'product_cat');
+                        $sort_order = get_term_meta( $parent_cat->term_id,'cat_order', true);
+                        if(!empty($sort_order)) {
+                            $orderby = $sort_order;
+                        }
                     }
                 }
+
             }
 
 
