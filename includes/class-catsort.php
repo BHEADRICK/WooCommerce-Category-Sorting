@@ -47,23 +47,28 @@ class WCCS_Catsort {
 	}
 
 	public function orderby_filter($orderby){
-        global $wp;
+
 	    if(is_product_category()){
-	        $cat_slug = $wp->query_vars['product_cat'];
 
-	        $cat = get_term_by('slug', $cat_slug, 'product_cat');
+$cat = get_queried_object();
+	        if($cat){
 
-	        $sort_order = get_term_meta( $cat->term_id,'cat_order', true);
+                if(!is_wp_error($cat) && is_object($cat)){
+                    $sort_order = get_term_meta( $cat->term_id,'cat_order', true);
 
-	        if(!empty($sort_order)){
-	            $orderby = $sort_order;
-            }elseif($cat->parent>0){
-	            $parent_cat = get_term($cat->parent, 'product_cat');
-                $sort_order = get_term_meta( $parent_cat->term_id,'cat_order', true);
-                if(!empty($sort_order)) {
-                    $orderby = $sort_order;
+                    if(!empty($sort_order)){
+                        $orderby = $sort_order;
+                    }elseif($cat->parent>0){
+                        $parent_cat = get_term($cat->parent, 'product_cat');
+                        $sort_order = get_term_meta( $parent_cat->term_id,'cat_order', true);
+                        if(!empty($sort_order)) {
+                            $orderby = $sort_order;
+                        }
+                    }
                 }
+
             }
+
 
 
 
@@ -79,7 +84,7 @@ class WCCS_Catsort {
 	private function meta_fields($taxonomy, $term = null){
 
 	    $cat_order = null;
-	    if($term != null){
+	    if($term != null && is_object($term)){
 
 	        $cat_order = get_term_meta($term->term_id, 'cat_order', true);
         }
